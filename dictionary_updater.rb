@@ -34,6 +34,8 @@ Plugin.create(:dictionary_updater) do
         File.open(File.join(@dic_dir, "#{matched[:type]}.yml")) do |f|
           f.puts("- \"#{matched[:word]}\"")
         end
+
+        # TODO: git コマンドでコミット&プッシュを実行するようにする
       end
     }
   end

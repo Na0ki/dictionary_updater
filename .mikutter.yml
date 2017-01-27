@@ -1,0 +1,10 @@
+---
+slug: :dictionary_updater
+depends:
+  mikutter: 3.5.0
+  plugin:
+  - ahiru_yakuna
+version: '1.0'
+author: ahiru
+name: dictionary_updater
+description: あひる焼くなの辞書追加機能を提供するプラグイン

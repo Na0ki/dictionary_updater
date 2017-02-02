@@ -25,9 +25,10 @@ Plugin.create(:dictionary_updater) do
   def update_dictionary(message)
     prepare
     Thread.new(message) { |m|
-      matched = /@#{m.user.idname}\s辞書追加\s(?<type>[\w\-]+)\s(?<word>.+)/.match(m.to_s)
+      matched = /@#{m.user.idname}\s辞書追加\s(?<type>[\w\-]+?)\s(?<word>.+)/.match(m.to_s)
       if matched.nil?
-        m.post(message: 'D @ahiru3net 形式: @ahiru3net 辞書追加 辞書の種類 追加文')
+        # 構文を間違えた際には自分にDする
+        m.post(message: "D @#{m.user.idname} 形式: @#{m.user.idname} 辞書追加 辞書の種類 追加文")
       else
         Delayer::Deferred.fail("辞書 #{matched[:type]} は存在しません") unless @dictionaries.include?(matched[:type])
 

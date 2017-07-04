@@ -2,7 +2,7 @@
 slug: :dictionary_updater
 depends:
   mikutter: 3.5.0
-  plugin: []
+  plugin: [streaming]
 version: '1.0'
 author: ahiru
 name: dictionary_updater
